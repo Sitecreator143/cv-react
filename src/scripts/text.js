@@ -8,7 +8,6 @@ export const text = [
     aboutMe: {
       title: "About me",
       text: "Hello. I am a Front-end Web-developer. I really like the IT industry and I want to become a professional in this area. I work on websites and applications every day, constantly developing. I get along well with the team. My strengths are logic, pedantry and self-organization. Looking for a job in the St. Petersburg."
-    
     },
     skillsInDevelopment: {
       title: "Skills in development",

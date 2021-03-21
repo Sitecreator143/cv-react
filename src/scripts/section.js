@@ -1,100 +1,78 @@
-import { text } from "./text.js"
-import { isRussian } from "../main.js"
+import { text } from "./text.js";
+import { isRussian } from "../main.js";
 
-export class Section {
-  constructor(isRussian) {
-    this.container = document.querySelector("[data-container]")
-    this.isRussian = isRussian;
-  }
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+class Article extends React.Component {
   findText(textLink) {
-    const outputText = text.find(el => el.isRussian === this.isRussian)[textLink];
+    const outputText = text.find(el => el.isRussian === isRussian)[textLink];
     return outputText;
   }
-
-  createWrap() {
-    this.section = document.createElement("section");
-    this.container.append(this.section)
-    return this;
+  render() {
+    return (
+      <article>
+        <div class="article__header">
+          <i class={this.props.articleIconClass}></i>
+          <div class="article__title">{this.findText(this.props.textLink).title}</div>
+        </div>
+        <div class="article__text">{this.findText(this.props.textLink).text}</div>
+      </article>
+    )
   }
+}
 
-  createArticle(articleIconClass, textLink) {
-    const article = document.createElement("article");
-    this.section.append(article);
-
-    const articleHeader = document.createElement("div");
-    articleHeader.classList.add("article__header");
-    article.append(articleHeader);
-
-    const articleIcon = document.createElement("i");
-    articleIcon.classList.add("fas");
-    articleIcon.classList.add(articleIconClass);
-    articleHeader.append(articleIcon);
-
-    const articleTitle = document.createElement("div");
-    articleTitle.classList.add("article__title");
-    articleTitle.innerText = this.findText(textLink).title;
-    articleHeader.append(articleTitle);
-
-    article.articleText = document.createElement("div");
-    article.articleText.classList.add("article__text");
-    article.articleText.innerText = this.findText(textLink).text;
-    article.append(article.articleText);
-    return article;
+class Link extends React.Component {
+  render() {
+    return(
+      <a class="article__link" href={this.props.link} target="_blank">{this.props.title}</a>
+    )
   }
+}
 
-  createLink(title, link) {
-    const portfolioLink = document.createElement("a");
-    portfolioLink.setAttribute("href", link);
-    portfolioLink.setAttribute("target", "_blank");
-    portfolioLink.innerText = title;
-    portfolioLink.classList.add("article__link");
-    return portfolioLink;
+export class Section extends React.Component {
+  constructor(props) {
+    super(props);
   }
-
-  createDrop() {
-    const drop = document.createElement("br");
-    return drop;
+  findText(textLink) {
+    const outputText = text.find(el => el.isRussian === isRussian)[textLink];
+    return outputText;
   }
+  render() {
+    return(
+      <section>
+        <Article articleIconClass="fas fa-user" textLink="aboutMe"/>
+        <Article articleIconClass="fas fa-wrench" textLink="skillsInDevelopment"/>
 
-  createSection() {
-    this.createWrap();
-    const articleAboutMe = this.createArticle("fa-user", "aboutMe");
-    const articleSkillsInDevelopment = this.createArticle("fa-wrench", "skillsInDevelopment");
+        <article>
+          <div class="article__header">
+            <i class="fas fa-briefcase"></i>
+            <div class="article__title">{this.findText("portfolio").title}</div>
+          </div>
+          <div class="article__text">{this.findText("portfolio").text}</div>
+          <Link link="https://sitecreator143.github.io/kids-jump-tech/dist" title="Landing: Kids jump tech (HTML/SCSS/JS, Webpack)"/><br></br>
+          <Link link="https://sitecreator143.github.io/RS-clone" title="App: Dice poker (HTML/CSS/JS, AnimeJS, AudioAPI, Mocha, Airbnb)"/><br></br>
+          <Link link="https://sitecreator143.github.io/app-covid-dashboard" title="App: Covid-19 dashboard (HTML/CSS/JS, ESlint, Hight charts, API)"/><br></br>
+          <Link link="https://sitecreator143.github.io/app-english-for-kids" title="App: English for kids (HTML/SCSS/JS)"/><br></br>
+          <Link link="https://sitecreator143.github.io/app-gem-puzzle" title="App: Gem puzzle (HTML/SCSS/JS, localStorage, Canvas)"/><br></br>
+          <Link link="https://sitecreator143.github.io/app-keyboard" title="App: Keyboard (HTML/SCSS/JS)"/><br></br>
+          <Link link="https://sitecreator143.github.io/app-calculator" title="App: Calculator (HTML/CSS/JS)"/><br></br>
+          <Link link="https://sitecreator143.github.io/app-momentum" title="App: Momentum (HTML/SCSS/JS, localStorage, API)"/><br></br>
+          <Link link="https://sitecreator143.github.io/site-landing-shelter" title="Landing: Shelter (HTML/SCSS/JS)"/><br></br>
+          <Link link="https://sitecreator143.github.io/site-landing-eleven" title="Landing: Eleven (HTML/SCSS/JS, jQuery, PHP mailer)"/><br></br>
+          <Link link="https://sitecreator143.github.io/site-landing-portfolio" title="Landing: Personal page (HTML/SCSS/jQuery)"/><br></br>
+          <Link link="https://sitecreator143.github.io/site-landing-webdev" title="Landing: Webdev (HTML/CSS)"/><br></br>
+          <Link link="https://sitecreator143.github.io/fun-truck" title="For test: truck (HTML/CSS)"/><br></br><br></br>
+          <Link link="https://github.com/Sitecreator143" title="GitHub: Sitecreator143"/>
+          <div class="article__text"></div>
+        </article>
 
-    const articlePortfolio = this.createArticle("fa-briefcase", "portfolio");
-    articlePortfolio.articleText.append(this.createLink("Landing: Kids jump tech (HTML/SCSS/JS, Webpack)", "https://sitecreator143.github.io/kids-jump-tech/dist"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: Dice poker (HTML/CSS/JS, AnimeJS, AudioAPI, Mocha, Airbnb)", "https://sitecreator143.github.io/RS-clone"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: Covid-19 dashboard (HTML/CSS/JS, ESlint, Hight charts, API)", "https://sitecreator143.github.io/app-covid-dashboard"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: English for kids (HTML/SCSS/JS)", "https://sitecreator143.github.io/app-english-for-kids"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: Gem puzzle (HTML/SCSS/JS, localStorage, Canvas)", "https://sitecreator143.github.io/app-gem-puzzle"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: Keyboard (HTML/SCSS/JS)", "https://sitecreator143.github.io/app-keyboard"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: Calculator (HTML/CSS/JS)", "https://sitecreator143.github.io/app-calculator"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("App: Momentum (HTML/SCSS/JS, localStorage, API)", "https://sitecreator143.github.io/app-momentum"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("Landing: Shelter (HTML/SCSS/JS)", "https://sitecreator143.github.io/site-landing-shelter"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("Landing: Eleven (HTML/SCSS/JS, jQuery, PHP mailer)", "https://sitecreator143.github.io/site-landing-eleven"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("Landing: Personal page (HTML/SCSS/jQuery)", "https://sitecreator143.github.io/site-landing-portfolio"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("Landing: Webdev (HTML/CSS)", "https://sitecreator143.github.io/site-landing-webdev"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("For test: truck (HTML/CSS)", "https://sitecreator143.github.io/fun-truck"));
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createDrop());
-    articlePortfolio.articleText.append(this.createLink("GitHub: Sitecreator143", "https://github.com/Sitecreator143"));
 
-    const articleEducation = this.createArticle("fa-graduation-cap", "education");
-    const articleWorkExperience = this.createArticle("fa-building", "workExperience");
-    const articlePersonalQualities = this.createArticle("fa-user-shield", "personalQualities");
-    const articleSpecialSkills = this.createArticle("fa-cog", "specialSkills");
+        <Article articleIconClass="fas fa-graduation-cap" textLink="education"/>
+        <Article articleIconClass="fas fa-building" textLink="workExperience"/>
+        <Article articleIconClass="fas fa-user-shield" textLink="personalQualities"/>
+        <Article articleIconClass="fas fa-cog" textLink="specialSkills"/>
+      </section>
+    )
   }
 }
