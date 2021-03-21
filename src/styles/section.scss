@@ -25,13 +25,116 @@ section {
   margin: 0 0 30px 0;
   font-size: 21px;
 }
+
+.article__works-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 .article__link {
-  font-size: 21px;
-  color: #cfcfcf;
+  margin: 10px 0;
+  position: relative;
+  flex: 0 0 30%;
+  height: 100px;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  text-align: center;
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(255, 255, 255, 0);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    &:hover {
+      background-color: rgb(0, 0, 0, 0.7);
+      color: rgb(255, 255, 255, 1);
+    }
+  }
+  &:nth-child(1) {
+    background: url("../img/section/cv.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(2) {
+    background: url("../img/section/kids-jump-tech.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(3) {
+    background: url("../img/section/dice-poker.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(4) {
+    background: url("../img/section/english-for-kids.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(5) {
+    background: url("../img/section/covid.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(6) {
+    background: url("../img/section/gem-puzzle.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(7) {
+    background: url("../img/section/keyboard.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(8) {
+    background: url("../img/section/calculator.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(9) {
+    background: url("../img/section/shelter.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(10) {
+    background: url("../img/section/landing-eleven.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(11) {
+    background: url("../img/section/momentum.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(12) {
+    background: url("../img/section/portfolio.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(13) {
+    background: url("../img/section/webdev.png");
+    background-position: start center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
-.article__link:hover {
-  color: gray;
-}
+
 @media (max-width: 1199px) {
   section {
     padding: 15px;
@@ -44,6 +147,10 @@ section {
   .article__title {
     margin: 0 0 0 0px;
     font-size: 21px;
+  }
+  .article__link {
+    flex: 0 0 47%;
+    height: 130px;
   }
 }
 @media (max-width: 430px) {
