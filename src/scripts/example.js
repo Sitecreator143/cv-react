@@ -1,1 +1,0 @@
-export const y = prompt("safsf", "saff");
