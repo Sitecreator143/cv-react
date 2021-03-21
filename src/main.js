@@ -5,17 +5,21 @@ import "./styles/style.scss"
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import asideImg from "./img/aside__img.jpg";
-export const asideImgSrc = asideImg;
+const container = document.querySelector("[data-container]");
+export let isRussian = true;
+
+//Aside
+import { Aside } from "./scripts/aside.js";
+ReactDOM.render(
+  <Aside />,
+  container
+)
+
+
 
 import { Settings } from "./scripts/settings.js";
 new Settings().setDefaultSettings();
 
-import { Aside } from "./scripts/aside.js";
+
 import { Section } from "./scripts/section.js";
-export const blocsObject = {
-  aside: {},
-  section: {}
-};
-blocsObject.aside = new Aside(JSON.parse(localStorage.getItem("Alexander Nikolaev CV Settings")).language).createAside();
-blocsObject.section = new Section(JSON.parse(localStorage.getItem("Alexander Nikolaev CV Settings")).language).createSection();
+new Section(true);

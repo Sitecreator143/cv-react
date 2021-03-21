@@ -1,10 +1,10 @@
 export const text = [
   {
-    language: "English",
+    isRussian: false,
     name: "ALEXANDER\nNIKOLAEV",
     prof: "Front-end Web-developer",
     asideInfo: "Personal information",
-    asideData: "\nAge 27, Saint Petersburg, Russia\n\nPhone number:\n+7(967)570-66-23\nWhatsApp, Viber, Telegram\n\nMarital status:\nSingle\n\nEmail:\nNikolaevsailing@mail.ru",
+    asideData: ["Age 27, Saint Petersburg, Russia", "Phone number:", "+7(967)570-66-23", "WhatsApp, Viber, Telegram", "Marital status:", "Single", "Email:", "Nikolaevsailing@mail.ru"],
     aboutMe: {
       title: "About me",
       text: "Hello. I am a Front-end Web-developer. I really like the IT industry and I want to become a professional in this area. I work on websites and applications every day, constantly developing. I get along well with the team. My strengths are logic, pedantry and self-organization. Looking for a job in the St. Petersburg."
@@ -36,11 +36,11 @@ export const text = [
     }
   },
   {
-    language: "Russian",
+    isRussian: true,
     name: "АЛЕКСАНДР\nНИКОЛАЕВ",
     prof:"Фронт-энд Веб-разработчик",
     asideInfo: "Персональная информация",
-    asideData: "\nВозраст 27 лет, г. Санкт-Петербург, Россия\n\nНомер телефона:\n+7(967)570-66-23\nWhatsApp, Viber, Telegram\n\nСемейное положение:\nНе женат\n\nEmail:\nNikolaevsailing@mail.ru",
+    asideData: ["Возраст 27 лет, г. Санкт-Петербург, Россия", "Номер телефона:", "+7(967)570-66-23", "WhatsApp, Viber, Telegram", "Семейное положение:", "Не женат", "Email:", "Nikolaevsailing@mail.ru"],
     aboutMe: {
       title: "Обо мне",
       text: "Здравствуйте. Я - Фронт-энд Веб-разработчик. Мне очень нравится IT индустрия, и я хочу стать профессионалом в этой сфере. Ежедневно работаю над сайтами и приложениями, постоянно развиваюсь. Хорошо уживаюсь с коллективом. Мои сильные стороны: логика, педантичность и самоорганизация. Ищу работу в Санкт-Петербурге."

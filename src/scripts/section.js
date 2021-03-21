@@ -1,13 +1,14 @@
 import { text } from "./text.js"
+import { isRussian } from "../main.js"
 
 export class Section {
-  constructor(language) {
+  constructor(isRussian) {
     this.container = document.querySelector("[data-container]")
-    this.language = language;
+    this.isRussian = isRussian;
   }
 
   findText(textLink) {
-    const outputText = text.find(el => el.language === this.language)[textLink];
+    const outputText = text.find(el => el.isRussian === this.isRussian)[textLink];
     return outputText;
   }
 
