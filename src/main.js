@@ -6,20 +6,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const container = document.querySelector("[data-container]");
-export let isRussian = true;
+export let isRussian = false;
 
 //Aside
 import { Aside } from "./scripts/aside.js";
-ReactDOM.render(
-  <Aside />,
-  container
-)
+
+//Render
+export const languageSwitch = new Event("my-event");
+document.documentElement.addEventListener("my-event", () => {
+  isRussian = !isRussian;
+  ReactDOM.render(
+    <Aside />,
+    container
+  )
+})
+document.documentElement.dispatchEvent(languageSwitch)
 
 
 
-import { Settings } from "./scripts/settings.js";
-new Settings().setDefaultSettings();
-
-
-import { Section } from "./scripts/section.js";
-new Section(true);
