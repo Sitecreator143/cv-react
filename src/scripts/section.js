@@ -6,11 +6,11 @@ import ReactDOM from 'react-dom';
 const sectionText = {
   aboutMe: [{
     title: "About me",
-    text: "Hello. I am a Front-end Web-developer. I really like the IT industry and I want to become a professional in this area. I work on websites and applications every day, constantly developing. I get along well with the team. My strengths are logic, pedantry and self-organization. Looking for a job in the St. Petersburg."
+    text: "Hello. I am a Front-end Web-developer. I really like the IT industry and I want to become a professional in this area. I work on websites and applications every day, constantly developing. I get along well with the team. My strengths are logic, pedantry and self-organization."
   },
   {
     title: "Обо мне",
-    text: "Здравствуйте. Я - Фронт-энд Веб-разработчик. Мне очень нравится IT индустрия, и я хочу стать профессионалом в этой сфере. Ежедневно работаю над сайтами и приложениями, постоянно развиваюсь. Хорошо уживаюсь с коллективом. Мои сильные стороны: логика, педантичность и самоорганизация. Ищу работу в Санкт-Петербурге."
+    text: "Здравствуйте. Я - Фронт-энд Веб-разработчик. Мне очень нравится IT индустрия, и я хочу стать профессионалом в этой сфере. Ежедневно работаю над сайтами и приложениями, постоянно развиваюсь. Хорошо уживаюсь с коллективом. Мои сильные стороны: логика, педантичность и самоорганизация."
   }],
   skillsInDevelopment: [{
     title: "Skills in development",
@@ -252,7 +252,7 @@ export class Section extends React.Component {
         </article>
 
         <Article articleIconClass="fas fa-user-shield" textLink="personalQualities"/>
-        
+
         <article class="article">
           <div class="article__header">
             <i class="fas fa-cog"></i>
