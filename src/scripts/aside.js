@@ -1,35 +1,62 @@
-import { text } from "./text.js";
 import { isRussian } from "../main.js";
 import { languageSwitch } from "../main.js";
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const asideText = {
+  name: [
+    "ALEXANDER\nNIKOLAEV",
+    "АЛЕКСАНДР\nНИКОЛАЕВ"
+  ],
+  prof: [
+    "Front-end Web-developer",
+    "Фронт-энд Веб-разработчик"
+  ],
+  asideInfo: [
+    "Personal information",
+    "Персональная информация"
+  ],
+  asideData: [["Age 27, Saint Petersburg, Russia",
+  "Phone number:", "+7(967)570-66-23",
+  "WhatsApp, Viber, Telegram",
+  "Marital status:",
+  "Single",
+  "Email:",
+  "Nikolaevsailing@mail.ru"],
+  ["Возраст 27 лет, г. Санкт-Петербург, Россия",
+  "Номер телефона:",
+  "+7(967)570-66-23",
+  "WhatsApp, Viber, Telegram",
+  "Семейное положение:",
+  "Не женат",
+  "Email:",
+  "Nikolaevsailing@mail.ru"]
+  ]
+}
+
 export class Aside extends React.Component {
   constructor(props) {
     super(props);
   }
   findText(textLink) {
-    const outputText = text.find(el => el.isRussian === isRussian)[textLink];
+    const outputText = isRussian ? asideText[textLink][1] : asideText[textLink][0]
     return outputText;
   }
   render() {
     return(
-      <aside>
-        <div class="aside__header">
-          <div class="aside__image-wrap">
-            <div class="aside__image">
-              <div class="aside__language" onClick={() => {document.documentElement.dispatchEvent(languageSwitch)}}>
-                <div class={isRussian ? "aside__languageEn" : "aside__languageEn aside__language_active"}>EN</div>
-                <div class={isRussian ? "aside__languageRu aside__language_active" : "aside__languageRu"}>RU</div>
-              </div>
-            </div>
+      <aside class="aside">
+        <div class="aside__top">
+          <div class="aside__img"></div>
+          <div class="language-switch language-switch--aside" onClick={() => {document.documentElement.dispatchEvent(languageSwitch)}}>
+            <div class={isRussian ? "language-switch__en" : "language-switch__en language-switch--active"}>EN</div>
+            <div class={isRussian ? "language-switch__ru language-switch--active" : "language-switch__ru"}>RU</div>
           </div>
 
           <div class="aside__name">{this.findText("name")}</div>
           <div class="aside__prof">{this.findText("prof")}</div>
         </div>
-        <div class="aside__footer">
+        <div class="aside__bottom">
           <div class="aside__info">{this.findText("asideInfo")}</div>
           <div>{this.findText("asideData")[0]}</div><br></br>
           <div>{this.findText("asideData")[1]}</div>

@@ -1,0 +1,82 @@
+.aside {
+  flex: 0 0 30%;
+  background-color: $aside-bg;
+  @include sm() {
+    flex: 0 0 100%;
+  }
+  &__top {
+    position: relative;
+  }
+  &__img {
+    width: 100%;
+    height: 232px;
+    background: url("../img/aside/aside__img.jpg");
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include sm() {
+      height: 485px;
+    }
+    @include xs() {
+      height: 206px;
+    }
+  }
+  &__name {
+    margin: 20px 0 10px 0;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    color: $font;
+    @include lg() {
+      font-size: 28px;
+    }
+    @include xs() {
+      font-size: 20px;
+    }
+  }
+  &__prof {
+    margin: 0 0 10px 0;
+    font-size: 21px;
+    font-weight: 500;
+    text-align: center;
+    color: $font;
+  }
+
+  /* Footer */
+  &__bottom {
+    padding: 50px 20px;
+    font-size: 18px;
+    color: $font;
+    @include lg() {
+      padding: 50px 10px;
+      font-size: 16px;
+    }
+    @include sm() {
+      font-size: 18px;
+    }
+    @include xs() {
+      padding: 15px 10px;
+      font-size: 12px;
+    }
+  }
+  &__info {
+    border-bottom: 1px solid $font;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+  &__link {
+    color: $font;
+    transition: all 0.3s ease;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__gitlink {
+    font-weight: 600;
+  }
+}
+
+
+
+
