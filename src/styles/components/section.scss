@@ -4,6 +4,7 @@
   flex: 1 1 30%;
   background-color: $section-bg;
   color: $font;
+  border-left: 1px solid $font;
   @include lg() {
     padding: 50px 10px;
   }
