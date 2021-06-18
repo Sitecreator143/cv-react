@@ -7,6 +7,9 @@ const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
 //SCSS
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+//Favicon
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
   watch: true,
   entry: './src/main.js',
@@ -78,6 +81,12 @@ module.exports = {
     //CSS
     new MiniCssExtractPlugin({
       filename: "style.css",
+    }),
+    //Favicon
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/favicon/", to: "static/favicon" },
+      ],
     }),
   ]  
 };

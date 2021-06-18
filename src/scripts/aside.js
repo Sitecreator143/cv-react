@@ -17,21 +17,26 @@ const asideText = {
     "Personal information",
     "Персональная информация"
   ],
-  asideData: [["Age 27, Saint Petersburg, Russia",
-  "Phone number:", "+7(967)570-66-23",
-  "WhatsApp, Viber, Telegram",
-  "Marital status:",
-  "Single",
-  "Email:",
-  "Nikolaevsailing@mail.ru"],
-  ["Возраст 27 лет, г. Санкт-Петербург, Россия",
-  "Номер телефона:",
-  "+7(967)570-66-23",
-  "WhatsApp, Viber, Telegram",
-  "Семейное положение:",
-  "Не женат",
-  "Email:",
-  "Nikolaevsailing@mail.ru"]
+  asideData: [
+    [
+      "Age 27, Saint Petersburg, Russia",
+      "Phone number:", "+7(967)570-66-23",
+      "WhatsApp, Viber, Telegram",
+      "Marital status:",
+      "Single",
+      "Email:",
+      "Nikolaevsailing@mail.ru"
+    ],
+    [
+      "Возраст 27 лет, г. Санкт-Петербург, Россия",
+      "Номер телефона:",
+      "+7(967)570-66-23",
+      "WhatsApp, Viber, Telegram",
+      "Семейное положение:",
+      "Не женат",
+      "Email:",
+      "Nikolaevsailing@mail.ru"
+    ]
   ]
 }
 
